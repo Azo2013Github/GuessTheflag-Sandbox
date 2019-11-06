@@ -21,17 +21,30 @@ struct ContentView: View {
     var body: some View {
        
         ZStack {
-            Color(red: 0 / 255,
+            /*Color(red: 0 / 255,
                   green: 128 / 255,
                   blue: 128 / 255
-                ).edgesIgnoringSafeArea(.all)
+                ).edgesIgnoringSafeArea(.all)*/
             
-            //Color.purple.edgesIgnoringSafeArea(.all)
-            
+            LinearGradient(
+            gradient: Gradient(colors: [Color(red: 0 / 255,
+                                              green: 128 / 255,
+                                              blue: 128 / 255),
+                                        .black]),
+            startPoint: .top,
+            endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+        
             VStack(spacing: 30){
                 VStack {
-                    Text("Tap me")
+                    Text("Tap the flag of")
+                        .font(.title)
+                        .foregroundColor(.white)
+                    
                     Text(countries[correctAnswer])
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
                 }
                 ForEach(0 ..< 3){ number in
                     Button(action: {
