@@ -50,9 +50,13 @@ struct ContentView: View {
                     Button(action: {
                         self.flagTapped(number)
                         print("You are tapped in the button: \(self.countries[number])")
-                    }){
+                        }){
                         Image(self.countries[number])
                             .renderingMode(.original)
+                            .clipShape(Capsule())
+                            .overlay(Capsule()
+                                .stroke(Color.black     , lineWidth: 2))
+                            .shadow(color: .gray, radius: 10)
                     }
                 }
                 Spacer()
